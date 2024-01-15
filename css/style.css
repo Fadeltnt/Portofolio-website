@@ -73,7 +73,7 @@ ul
 
 .main-content
 {
-    padding-left:70px
+    padding-left:10px
 }
 
 .padd-15
@@ -158,57 +158,51 @@ ul
     transform: scale(1.05)
 }
 
-/*aside*/
+/* Aside */
 .aside {
     background: var(--bg--black-100);
-    position: flex;
+    position: fixed; /* Modification de 'flex' à 'fixed' pour fixer la barre en haut de la page */
     top: 0;
     left: 0;
     width: 100%;
-    padding: 70px;
+    padding: 10px 20px; /* Ajout d'un peu d'espace autour du logo et de la navigation */
     font-weight: 800;
-    
     display: flex;
-    justify-content: space-between; /* Pour espacer le logo et la liste de navigation */
+    justify-content: space-between;
     align-items: center;
     z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre pour plus de séparation */
 }
 
 .aside .logo {
-    font-size: 30px;
+    font-size: 24px; /* Réduction de la taille du logo pour un meilleur ajustement */
     text-transform: capitalize;
 }
 
 .aside .logo a {
     color: var(--text-black-900);
     font-weight: 400;
-    padding: 10px;
-    font-size: 30px;
-    letter-spacing: 5px;
-    position: relative;
+    font-size: 24px; /* Réduction de la taille du texte du logo */
+    text-decoration: none;
 }
 
 .aside .logo a span {
     font-family: "IBM Plex Sans", cursive;
     font-weight: 700;
-    font-size: 40px;
+    font-size: 30px; /* Réduction de la taille de la première lettre du logo */
 }
-
-
-
 
 .aside .nav {
     display: flex;
     align-items: center;
-    
 }
 
 .aside .nav li {
-    margin-right: flex;
+    margin-right: 20px; /* Ajout d'une marge fixe entre les éléments de la navigation */
 }
 
 .aside .nav li:last-child {
-    margin-right: 0; /* Supprime la marge à droite pour le dernier élément */
+    margin-right: 0;
 }
 
 .aside .nav li a {
@@ -226,10 +220,67 @@ ul
 
 /* Masquer la nav-toggler pour l'instant */
 .aside .nav-toggler {
-    display: flex;
+    display: none; /* Masquer le bouton de bascule pour le moment */
 }
 
+/* Responsive Styles */
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .aside {
+        padding: 10px;
+    }
 
+    .aside .logo {
+        font-size: 20px;
+        text-align: center; /* Centrez le texte */
+    }
+
+    .aside .logo a {
+        font-size: 20px;
+        display: inline-block; /* Pour centrer le lien du logo */
+    }
+    .aside .nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg--black-100);
+        z-index: 9;
+    }
+
+    .aside .nav.active {
+        display: flex;
+    }
+
+    .aside .nav-toggler {
+        display: flex;
+    }
+
+    .aside .nav li {
+        margin-right: 0; /* Supprimer la marge à droite pour les petits écrans */
+        margin-bottom: 10px; /* Ajouter une marge en bas pour séparer les éléments de navigation */
+    }
+
+    .aside .nav li:last-child {
+        margin-bottom: 0; /* Supprimer la marge en bas pour le dernier élément */
+    }
+
+    .aside .nav li a {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--text-black-900);
+        text-decoration: none;
+        padding: 10px;
+        transition: color 0.3s ease;
+    }
+
+    .aside .nav li a:hover {
+        color: var(--skin-color);
+    }
+    
+}
 .home
 {
     min-height: 100vh;
